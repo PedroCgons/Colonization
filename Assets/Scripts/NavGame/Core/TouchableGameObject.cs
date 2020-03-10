@@ -12,7 +12,7 @@ public class TouchableGameObject : MonoBehaviour
        return distance < contactRadius + other.contactRadius;
    }
    protected virtual void OneDrawGizmosSelected(){
-       Gizmos.color = CreepController.Orange;
+       Gizmos.color = Color.yellow;
        Gizmos.DrawWireSphere(transform.position, contactRadius);
    }
 }
