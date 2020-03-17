@@ -8,6 +8,8 @@ public class DamageableGameObject : TouchableGameObject
 {
     public int currentHealth; 
     public Stats stats;
+    public OnHealthChangeEvent onHealthChange;
+    public OnDiedEvent onDied;
 
     protected virtual void Awake ()
     {
@@ -19,6 +21,10 @@ public class DamageableGameObject : TouchableGameObject
         amount = Mathf.Clamp(amount, 1, stats.maxHealth);
 
         currentHealth = currentHealth - amount;
+        if (onHealthChange != null)
+        {
+            onHealthChange(stats.maxHealth, currentHealth);
+        }
 
         if (currentHealth<= 0)
         {
@@ -28,6 +34,10 @@ public class DamageableGameObject : TouchableGameObject
     public virtual void Die()
     {
         Destroy (gameObject);
+        if (onDied != null)
+        {
+            onDied();
+        }
     }
 }
 }
