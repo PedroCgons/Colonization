@@ -6,24 +6,25 @@ namespace NavGame.Core
 {
 public class DamageableGameObject : TouchableGameObject
 {
+    public DefenseStats defenseStats;
     public int currentHealth; 
-    public Stats stats;
+   
     public OnHealthChangeEvent onHealthChange;
     public OnDiedEvent onDied;
 
     protected virtual void Awake ()
     {
-        currentHealth = stats.maxHealth;
+        currentHealth = defenseStats.maxHealth;
     }
     public void TakeDamage(int amount)
     {
-        amount = amount - stats.armor;
-        amount = Mathf.Clamp(amount, 1, stats.maxHealth);
+        amount = amount - defenseStats.armor;
+        amount = Mathf.Clamp(amount, 1, defenseStats.maxHealth);
 
         currentHealth = currentHealth - amount;
         if (onHealthChange != null)
         {
-            onHealthChange(stats.maxHealth, currentHealth);
+            onHealthChange(defenseStats.maxHealth, currentHealth);
         }
 
         if (currentHealth<= 0)
