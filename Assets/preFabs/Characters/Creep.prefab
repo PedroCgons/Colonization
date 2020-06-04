@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7683571219091053333}
   - component: {fileID: 7683571219091053334}
   - component: {fileID: 7683571219091053335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 7683571219590780035}
   - component: {fileID: 7376075997213022221}
   - component: {fileID: 1533086539340896418}
+  - component: {fileID: 2271877287520124383}
   m_Layer: 0
   m_Name: Creep
   m_TagString: Untagged
@@ -213,6 +214,8 @@ MonoBehaviour:
   ofenseStats:
     damage: 10
     attackSpeed: 1
+  enemyLayers:
+  - Infantry
 --- !u!114 &7376075997213022221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +248,19 @@ MonoBehaviour:
   healthUIPreFab: {fileID: 5303636347082731246, guid: 6e0374bb6ef02e84a9fdfd9e800a461d,
     type: 3}
   healthPosition: {fileID: 2311011730203418585}
+--- !u!135 &2271877287520124383
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683571219590780044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7683571220566870459
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +272,6 @@ GameObject:
   - component: {fileID: 7683571220566870458}
   - component: {fileID: 7683571220566870463}
   - component: {fileID: 7683571220566870456}
-  - component: {fileID: 7683571220566870457}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -323,16 +338,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7683571220566870457
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7683571220566870459}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
