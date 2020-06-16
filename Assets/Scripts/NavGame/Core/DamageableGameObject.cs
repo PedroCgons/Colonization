@@ -8,6 +8,8 @@ public class DamageableGameObject : TouchableGameObject
 {
     public DefenseStats defenseStats;
     public int currentHealth; 
+    public Transform damageTransform;
+    public  OnDamageTakenEvent onDamageTaken;
    
     public OnHealthChangeEvent onHealthChange;
     public OnDiedEvent onDied;
@@ -15,6 +17,10 @@ public class DamageableGameObject : TouchableGameObject
     protected virtual void Awake ()
     {
         currentHealth = defenseStats.maxHealth;
+        if (damageTransform == null)
+        {
+            damageTransform = transform;
+        }
     }
     public void TakeDamage(int amount)
     {
@@ -22,6 +28,11 @@ public class DamageableGameObject : TouchableGameObject
         amount = Mathf.Clamp(amount, 1, defenseStats.maxHealth);
 
         currentHealth = currentHealth - amount;
+if (onDamageTaken != null)
+{
+    onDamageTaken(damageTransform.position, amount);
+}
+
         if (onHealthChange != null)
         {
             onHealthChange(defenseStats.maxHealth, currentHealth);
