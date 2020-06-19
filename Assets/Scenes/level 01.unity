@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1482363168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d447021cc1dacb3489da1343f06dd8e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 009aaa628419f9442ab46e913395b5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angularSpeed: 6
@@ -1440,7 +1440,7 @@ MonoBehaviour:
     attackSpeed: 1
   attackRange: 6
   attackDelay: 0.5
-  castTransform: {fileID: 2072275593}
+  castTransform: {fileID: 0}
   enemyLayers:
   - Creep
   enemiesToAttack: []
@@ -1512,6 +1512,36 @@ Transform:
   - {fileID: 2072275593}
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1902550346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902550347}
+  m_Layer: 11
+  m_Name: CastPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902550347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902550346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4354244456594302908}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1941677009
 GameObject:
@@ -1950,6 +1980,7 @@ GameObject:
   - component: {fileID: 3499845678315678513}
   - component: {fileID: 4866837614399007646}
   - component: {fileID: 4354244456594302899}
+  - component: {fileID: 4354244456594302897}
   m_Layer: 11
   m_Name: Infantry
   m_TagString: Untagged
@@ -1957,6 +1988,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4354244456594302897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4354244456594302896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d447021cc1dacb3489da1343f06dd8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularSpeed: 6
+  contactRadius: 0.5
+  ofenseStats:
+    damage: 10
+    attackSpeed: 1
+  attackRange: 4
+  attackDelay: 0.5
+  castTransform: {fileID: 0}
+  enemyLayers: []
+  enemiesToAttack: []
+  projectilePrefab: {fileID: 0}
 --- !u!135 &4354244456594302898
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2001,6 +2055,7 @@ Transform:
   - {fileID: 4354244456431331372}
   - {fileID: 8565488047382260965}
   - {fileID: 1107609253}
+  - {fileID: 1902550347}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

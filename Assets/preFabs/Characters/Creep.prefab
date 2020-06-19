@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 7683571219590780032}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1897958977817273608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6814551764159831818}
+  m_Layer: 10
+  m_Name: CastPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6814551764159831818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897958977817273608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7683571219590780032}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5201512323624702560
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +198,7 @@ GameObject:
   - component: {fileID: 1533086539340896418}
   - component: {fileID: 2271877287520124383}
   - component: {fileID: 3474010115356299828}
+  - component: {fileID: 1012744748525545519}
   m_Layer: 10
   m_Name: Creep
   m_TagString: Untagged
@@ -189,6 +220,7 @@ Transform:
   - {fileID: 7683571219091053328}
   - {fileID: 2311011730203418585}
   - {fileID: 7325888263563785417}
+  - {fileID: 6814551764159831818}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -317,6 +349,32 @@ MonoBehaviour:
   damageEffects: {fileID: 6950662779015165630, guid: 14b2fb34aefb60345a6b50c7116d0222,
     type: 3}
   dieEffects: {fileID: 0}
+--- !u!114 &1012744748525545519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683571219590780044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d447021cc1dacb3489da1343f06dd8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularSpeed: 6
+  contactRadius: 0.5
+  ofenseStats:
+    damage: 10
+    attackSpeed: 1
+  attackRange: 3
+  attackDelay: 0.5
+  castTransform: {fileID: 6814551764159831818}
+  enemyLayers:
+  - Infantry
+  enemiesToAttack:
+  - {fileID: 0}
+  projectilePrefab: {fileID: 2593044509307110106, guid: 5a7b2785d0aed0f48b936c4a7abc3233,
+    type: 3}
 --- !u!1 &7683571220566870459
 GameObject:
   m_ObjectHideFlags: 0
