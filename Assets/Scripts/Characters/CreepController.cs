@@ -5,10 +5,8 @@ using UnityEngine.AI;
 using NavGame.Core;
 using NavGame.Managers;
 
-
-public class CreepController : InstantAttakerGameObject
+public class CreepController : InstantAttackerGameObject
 {
-
     DamageableGameObject finalTarget;
 
     protected override void Awake()
@@ -18,23 +16,22 @@ public class CreepController : InstantAttakerGameObject
         if (obj != null)
         {
             finalTarget = obj.GetComponent<DamageableGameObject>();
-
         }
     }
+
     protected override void Update()
     {
         base.Update();
         if (finalTarget != null && enemiesToAttack.Count == 0)
         {
             agent.SetDestination(finalTarget.transform.position);
-            if (IsInTouch(finalTarget))
+            if (IsInRange(finalTarget.transform.position))
             {
                 agent.ResetPath();
                 FaceObjectFrame(finalTarget.gameObject.transform);
                 AttackOnCooldown(finalTarget);
             }
         }
-
     }
 
     void Start()
@@ -44,5 +41,4 @@ public class CreepController : InstantAttakerGameObject
             agent.SetDestination(finalTarget.transform.position);
         }
     }
- 
 }

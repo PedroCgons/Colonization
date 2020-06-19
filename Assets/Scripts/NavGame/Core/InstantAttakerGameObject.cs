@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿  
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace NavGame.Core
 {
-
-    public class InstantAttakerGameObject : AttackGameObject
+    public class InstantAttackerGameObject : AttackGameObject
     {
+
         protected override void Attack(DamageableGameObject target)
         {
             target.TakeDamage(ofenseStats.damage);
@@ -16,6 +17,5 @@ namespace NavGame.Core
                 onAttackStrike(target.damageTransform.position);
             }
         }
-
     }
 }

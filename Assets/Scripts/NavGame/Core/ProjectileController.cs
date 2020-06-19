@@ -14,9 +14,10 @@ namespace NavGame.Core
         int damage;
         bool isInit = false;
 
+
         void Start()
         {
-            if (isInit)
+            if (!isInit) 
             {
                 Debug.LogError("ProjectileController Init was not called");
                 Destroy(gameObject);
@@ -25,15 +26,17 @@ namespace NavGame.Core
 
         void Update()
         {
-            if (target = null)
+            if (target == null)
             {
                 Destroy(gameObject);
                 return;
             }
 
             transform.position = Vector3.MoveTowards(transform.position, target.damageTransform.position, speed * Time.deltaTime);
+
             float distance = Vector3.Distance(transform.position, target.damageTransform.position);
-            if (distance < tolerance)
+
+            if (distance < tolerance) 
             {
                 target.TakeDamage(damage);
                 Destroy(gameObject);
