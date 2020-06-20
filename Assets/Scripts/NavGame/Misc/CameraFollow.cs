@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NavGame.Managers;
+
 namespace NavGame.Misc
 {
-
     public class CameraFollow : MonoBehaviour
     {
         public Transform target;
@@ -68,9 +68,5 @@ namespace NavGame.Misc
             float newX = Mathf.Clamp(transform.position.x, minX, maxX);
             transform.position = new Vector3(newX, transform.position.y, newZ);
         }
-
-
-
-
     }
-} 
+}

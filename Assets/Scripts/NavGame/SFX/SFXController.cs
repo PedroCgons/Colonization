@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NavGame.Managers;
 
-namespace NavGame.SFX
+namespace NavGame.Effects
 {
     public abstract class SFXController : MonoBehaviour
     {

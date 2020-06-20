@@ -7,9 +7,10 @@ using NavGame.Managers;
 public class CoinController : CollectibleGameObject
 {
     public string pickupSound;
+
     public override void Pickup()
-        {
-           base.Pickup();
-           AudioManager.instance.Play(pickupSound, transform.position);
-        }
+    {
+        base.Pickup();
+        AudioManager.instance.Play(pickupSound, transform.position);
+    }
 }

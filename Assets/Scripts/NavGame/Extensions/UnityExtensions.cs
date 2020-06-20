@@ -1,4 +1,5 @@
-﻿namespace UnityEngine
+﻿// https://answers.unity.com/questions/50279/check-if-layer-is-in-layermask.html
+namespace UnityEngine
 {
     public static class UnityExtensions
     {

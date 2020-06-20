@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using NavGame.Core;
 
-namespace NavGame.SFX
+namespace NavGame.Effects
 {
     [RequireComponent(typeof(DamageableGameObject))]
     public class DamageableEffects : SFXController
     {
         public string damageSound;
         public string dieSound;
+
         public GameObject damageEffects;
-        public GameObject dieEffects;
+        public GameObject dieEffect;
+
         void Awake()
         {
             DamageableGameObject damageable = GetComponent<DamageableGameObject>();
@@ -26,10 +28,7 @@ namespace NavGame.SFX
 
         protected virtual void OnDied()
         {
-            PlayEffects(transform.position, dieSound, dieEffects, Quaternion.identity);
+            PlayEffects(transform.position, dieSound, dieEffect, Quaternion.identity);
         }
-
-
-        
     }
 }

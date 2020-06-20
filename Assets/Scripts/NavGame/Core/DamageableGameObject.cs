@@ -4,52 +4,55 @@ using UnityEngine;
 
 namespace NavGame.Core
 {
-public class DamageableGameObject : TouchableGameObject
-{
-    public DefenseStats defenseStats;
-    public int currentHealth; 
-    public Transform damageTransform;
-    public  OnDamageTakenEvent onDamageTaken;
-   
-    public OnHealthChangeEvent onHealthChange;
-    public OnDiedEvent onDied;
-
-    protected virtual void Awake ()
+    public class DamageableGameObject : TouchableGameObject
     {
-        currentHealth = defenseStats.maxHealth;
-        if (damageTransform == null)
+        public DefenseStats defenseStats;
+        public int currentHealth;
+        public Transform damageTransform;
+
+        public OnDamageTakenEvent onDamageTaken;
+        public OnHealthChangedEvent onHealthChanged;
+        public OnDiedEvent onDied;
+
+        protected virtual void Awake()
         {
-            damageTransform = transform;
+            currentHealth = defenseStats.maxHealth;
+            if (damageTransform == null)
+            {
+                damageTransform = transform;
+            }
+        }
+
+        public void TakeDamage(int amount)
+        {
+            amount -= defenseStats.armor;
+            amount = Mathf.Clamp(amount, 1, defenseStats.maxHealth);
+
+            currentHealth -= amount;
+
+            if (onDamageTaken != null)
+            {
+                onDamageTaken(damageTransform.position, amount);
+            }
+
+            if (onHealthChanged != null)
+            {
+                onHealthChanged(defenseStats.maxHealth, currentHealth);
+            }
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+
+        public virtual void Die()
+        {
+            Destroy(gameObject);
+            if (onDied != null)
+            {
+                onDied();
+            }
         }
     }
-    public void TakeDamage(int amount)
-    {
-        amount = amount - defenseStats.armor;
-        amount = Mathf.Clamp(amount, 1, defenseStats.maxHealth);
-
-        currentHealth = currentHealth - amount;
-if (onDamageTaken != null)
-{
-    onDamageTaken(damageTransform.position, amount);
-}
-
-        if (onHealthChange != null)
-        {
-            onHealthChange(defenseStats.maxHealth, currentHealth);
-        }
-
-        if (currentHealth<= 0)
-        {
-            Die();
-        }
-    }
-    public virtual void Die()
-    {
-        Destroy (gameObject);
-        if (onDied != null)
-        {
-            onDied();
-        }
-    }
-}
 }
