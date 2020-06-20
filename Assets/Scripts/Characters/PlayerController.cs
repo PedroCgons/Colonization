@@ -12,17 +12,25 @@ public class PlayerController : TouchableGameObject
     public LayerMask walkableLayer;
     public LayerMask collectbleLayer;
 
-   
+    CollectibleGameObject pickupTarget;
+
+
     void Awake()
 
     {
         agent = GetComponent<NavMeshAgent>();
         cam = Camera.main;
 
-        
+
     }
 
     void Update()
+    {
+        ProcessImput();
+        UpdateCollet();
+    }
+
+    void ProcessImput()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -37,7 +45,24 @@ public class PlayerController : TouchableGameObject
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, collectbleLayer))
             {
                 Debug.Log("ollectible: " + hit.collider.name);
+                pickupTarget = hit.collider.gameObject.GetComponent<CollectibleGameObject>();
                 agent.SetDestination(hit.point);
+
+            }
+            else
+            {
+                pickupTarget = null;
+            }
+        }
+    }
+
+    void UpdateCollet()
+    {
+        if(pickupTarget != null)
+        {
+            if(IsInTouch(pickupTarget))
+            {
+                pickupTarget.Pickup();
             }
         }
     }

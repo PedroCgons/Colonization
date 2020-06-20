@@ -550,6 +550,9 @@ MonoBehaviour:
   walkableLayer:
     serializedVersion: 2
     m_Bits: 512
+  collectbleLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!195 &432035309
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -993,7 +996,8 @@ GameObject:
   m_Component:
   - component: {fileID: 952308624}
   - component: {fileID: 952308625}
-  m_Layer: 0
+  - component: {fileID: 952308626}
+  m_Layer: 12
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1028,6 +1032,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: -0.43, z: 0}
+--- !u!114 &952308626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952308623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca78090f854fdfc49b74e64d68c9cf58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularSpeed: 6
+  contactRadius: 0.5
+  amount: 1
+  pickupSound: coin
 --- !u!1 &1005253861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1778,7 @@ GameObject:
   - component: {fileID: 1948825237}
   - component: {fileID: 1948825236}
   - component: {fileID: 1948825235}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
