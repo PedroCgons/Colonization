@@ -24,4 +24,3 @@ namespace NavGame.Animation
         }
     }
 }
-

@@ -14,7 +14,7 @@ namespace NavGame.Core
         public float attackDelay = 0.5f;
         public Transform castTransform;
         public string[] enemyLayers;
-        public bool  isInCombat{ get; private set; }
+        public bool isInCombat { get; private set; }
 
         [SerializeField]
         protected List<DamageableGameObject> enemiesToAttack = new List<DamageableGameObject>();
