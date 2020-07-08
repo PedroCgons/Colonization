@@ -75,8 +75,8 @@ GameObject:
   - component: {fileID: 5022140937014577719}
   - component: {fileID: 8236668911440885293}
   - component: {fileID: 7904610177145043860}
-  - component: {fileID: 7904610177145043863}
-  - component: {fileID: 8185624309146986172}
+  - component: {fileID: 8195980140993957848}
+  - component: {fileID: 1282935869550660818}
   m_Layer: 0
   m_Name: Infantry
   m_TagString: Untagged
@@ -98,6 +98,7 @@ Transform:
   - {fileID: 7692294985683712254}
   - {fileID: 1034905536087796148}
   - {fileID: 1265899311739423923}
+  - {fileID: 7315535800975730600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,7 +204,7 @@ MonoBehaviour:
   damageEffects: {fileID: 2180754341959426579, guid: 07be4cb955ba8cb40aeeb7fb351672a4,
     type: 3}
   dieEffect: {fileID: 0}
---- !u!114 &7904610177145043863
+--- !u!114 &8195980140993957848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,21 +213,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7904610177145043857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41b90392104ea1459fa928d629763b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c620a9ecf5d8804fa6738ce576b0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angularSpeed: 6
   contactRadius: 0.5
   ofenseStats:
     damage: 10
-    attackSpeed: 1.2
+    attackSpeed: 1
   attackRange: 4
-  attackDelay: 0.5
-  castTransform: {fileID: 0}
+  attackDelay: 0.9
+  castTransform: {fileID: 7315535800975730600}
   enemyLayers:
   - Creep
   enemiesToAttack: []
---- !u!114 &8185624309146986172
+  projectilePrefab: {fileID: 3957850610607464296, guid: 19aa09753d2a40c4d92b6bd9014048c7,
+    type: 3}
+--- !u!114 &1282935869550660818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,6 +242,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothness: 0.1
+--- !u!1 &8330463410107304525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7315535800975730600}
+  m_Layer: 0
+  m_Name: CastPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7315535800975730600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330463410107304525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.393, y: 1.017, z: -0.009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7904610177145043869}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2689646206428710735
 PrefabInstance:
   m_ObjectHideFlags: 0
